@@ -1,0 +1,26 @@
+{% extends 'base.html' %} 
+
+{% block 'title' %}
+
+pagina autor
+
+{% endblock %}  
+
+{% block 'body' %}
+
+<div style="padding-left: 5%; padding-right: 5%;" class="card">
+    <div class="body">
+        <h4>Autor</h4>
+        <hr>
+
+        <form method="POST" action="{% url 'autor' %}">{% csrf_token %}
+            {{form.as_p}}  
+            <br>
+            <button type="submit" class="btn btn-success">Enviar</button>
+            <a href="{% url 'home' %}" class="btn btn-danger">Cancelar</a>
+
+        </form>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %} 
+
+{% block 'title' %}
+
+pagina de inicio
+
+{% endblock %} 
+
+{% block 'body' %}
+
+<div class="card">
+    <div style="padding-left: 5%; padding-right: 5%;" class="body">
+        <h1>Crud</h1>
+        <hr>
+        <a href="{% url 'autor' %}"  class="btn btn-success">Adicionar</a>
+        
+        <br><br>
+        <!----------------->
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Senha</th>
+      <th scope="col">Opções</th>
+    </tr>
+  </thead>
+  <tbody>
+      {% for i in autores %}
+
+      <tr>
+        <td>{{i.nome}}</td>
+        <td>{{i.data_nascimento}}}</td>
+        <td>{{i.email}}}}</td>
+        <td>
+            <a class="btn btn-warning"  href="{% url 'editar' i.id %}">Editar</a>
+            <a class="btn btn-danger"  href="{% url 'delete' i.id %}"
+            onclick="return confirm('tem certeza?')">Excluir</a>
+        </td>
+      </tr>
+     
+      {% endfor %}
+    
+  </tbody>
+</table>
+<!------------------------->
+
+    </div>
+</div>
+
+
+{% endblock %}
